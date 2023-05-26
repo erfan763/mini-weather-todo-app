@@ -1,9 +1,13 @@
 import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import { Box } from "@mui/material";
 
 export default function Layout() {
   return (
-    <div>
+    <Box width="100%">
+      <Header />
+
       <Outlet />
-    </div>
+    </Box>
   );
 }
