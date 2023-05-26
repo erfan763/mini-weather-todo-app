@@ -1,3 +1,7 @@
+export type ITodo = {
+  title: string;
+};
+
 export const d = [
   { name: "dd" },
   { name: "dd" },

@@ -1,10 +1,12 @@
 import { Box, Button, Card, Divider, Typography } from "@mui/material";
 import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
-import { d } from "./fakeData";
-import { Fragment } from "react";
+import { ITodo, d } from "./todoType";
+import { Fragment, useState } from "react";
 
 export default function Todos() {
+  const [todos, setTodos] = useState<ITodo[]>();
+
   return (
     <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column">
       <Card
