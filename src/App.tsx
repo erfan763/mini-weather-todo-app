@@ -11,6 +11,7 @@ import "./services/i18n";
 function App() {
   // const mode = useTheme();
   const theme = useMemo(() => createTheme(getDesignTokens("light")), ["light"]);
+
   return (
     <>
       <ThemeProvider theme={theme}>

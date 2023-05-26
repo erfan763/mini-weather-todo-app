@@ -19,13 +19,28 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import { menuData } from "../layout/data";
 import { useLocation } from "react-router-dom";
+import useRTL from "../hooks/useRTL";
+import { useTranslation } from "react-i18next";
 
-type Anchor = "left";
+type Anchor = "left" | "right";
 
 export default function CustomeDrawer() {
+  const isRTL = useRTL();
+  const { t } = useTranslation();
+
   const [state, setState] = React.useState({
     left: false,
+    right: false,
   });
+
+  const [positionOfDrawer, setPositionOfDrawer] = React.useState<"right" | "left">("left");
+  React.useEffect(() => {
+    if (isRTL.isRtl) {
+      setPositionOfDrawer("right");
+    } else {
+      setPositionOfDrawer("left");
+    }
+  }, [isRTL]);
   const location = useLocation();
   const toggleDrawer = (anchor: Anchor, open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (
@@ -40,7 +55,7 @@ export default function CustomeDrawer() {
 
   return (
     <Box sx={{}}>
-      {(["left"] as const).map((anchor) => (
+      {([positionOfDrawer] as const).map((anchor) => (
         <React.Fragment key={anchor}>
           <IconButton
             onClick={toggleDrawer(anchor, true)}
@@ -61,14 +76,14 @@ export default function CustomeDrawer() {
             sx={{
               borderRadius: "10px",
               ".MuiDrawer-paper": {
-                borderRadius: "0px 10px 10px 0px",
+                borderRadius: isRTL.isRtl ? "10px 0px 0px 10px" : "0px 10px 10px 0px",
                 bgcolor: "#FFFFFF",
               },
             }}
           >
             <Box width={250}>
               <Box display="flex" justifyContent="space-between" alignItems="center" p={2}>
-                <Typography fontWeight="600">Menu</Typography>
+                <Typography fontWeight="600">{t("menu")}</Typography>
                 <IconButton onClick={toggleDrawer(anchor, false)} color="primary" aria-label="close">
                   <CloseIcon />
                 </IconButton>
@@ -86,7 +101,7 @@ export default function CustomeDrawer() {
                     <ListItemIcon>
                       <i.icon />
                     </ListItemIcon>
-                    <ListItemText primary={i.title} />
+                    <ListItemText sx={{ textAlign: "start" }} primary={t(i.title)} />
                   </ListItemButton>
                 </ListItem>
               ))}

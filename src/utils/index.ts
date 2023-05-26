@@ -12,8 +12,8 @@ export function getUserData() {
   return convertJson;
 }
 
-export function setToken(username: string) {
-  localStorage.setItem(tokenKey, username);
+export function setToken(data: string) {
+  localStorage.setItem(tokenKey, data);
 }
 
 export function removeToken() {

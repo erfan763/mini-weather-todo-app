@@ -1,6 +1,16 @@
 import { PaletteMode } from "@mui/material";
+import { getUserData } from "../utils";
 
 export const getDesignTokens = (mode: PaletteMode) => ({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          direction: getUserData()?.language === "fs" ? "rtl !important" : "ltr",
+        },
+      },
+    },
+  },
   palette: {
     mode,
     ...(mode === "light"

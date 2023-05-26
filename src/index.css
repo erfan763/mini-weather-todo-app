@@ -1,2 +1,9 @@
+@font-face {
+    font-family: "iran-sans-normal";
+    src: local("iran-sans-normal"), url("../assets/font/iranSans/IRANSansWeb.ttf") format("truetype");
+}
 
-
+* {
+    box-sizing: border-box;
+    font-family: "iran-sans-normal", "Courier New", Courier, monospace !important;
+}
