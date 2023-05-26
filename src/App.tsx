@@ -6,6 +6,8 @@ import "react-toastify/dist/ReactToastify.min.css";
 import MainRouter from "./router/index";
 import { getDesignTokens } from "./theme";
 
+import "./services/i18n";
+
 function App() {
   // const mode = useTheme();
   const theme = useMemo(() => createTheme(getDesignTokens("light")), ["light"]);

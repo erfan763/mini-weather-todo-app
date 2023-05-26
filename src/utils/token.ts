@@ -1,8 +1,15 @@
-export const tokenKey = "username_token";
+export type IUser = {
+  username: string | undefined;
+  theme: "light" | "dark";
+  language: "en" | "fs";
+};
 
-export function getToken() {
-  const token = localStorage.getItem(tokenKey);
-  return token;
+export const tokenKey = "user_sample_token";
+
+export function getUserData() {
+  const data = localStorage.getItem(tokenKey);
+  const convertJson: IUser = data && JSON.parse(data);
+  return convertJson;
 }
 
 export function setToken(username: string) {
