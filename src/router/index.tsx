@@ -6,9 +6,9 @@ import NotFound from "../pages/NotFound";
 import Layout from "../layout";
 import { getUserData } from "../utils";
 
-const Home = React.lazy(() => import("../pages/Home"));
+const Home = React.lazy(() => import("../pages/home"));
 const Profile = React.lazy(() => import("../pages/Profile"));
-const Weather = React.lazy(() => import("../pages/Weather"));
+const Weather = React.lazy(() => import("../pages/weather"));
 const Todos = React.lazy(() => import("../pages/todo"));
 const Login = React.lazy(() => import("../pages/login"));
 

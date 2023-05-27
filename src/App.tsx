@@ -8,6 +8,8 @@ import { getDesignTokens } from "./theme";
 
 import "./services/i18n";
 import { getUserData } from "./utils";
+import { get } from "./api";
+import { SWRConfig } from "swr";
 
 function App() {
   const mode = getUserData().theme;
@@ -15,13 +17,15 @@ function App() {
 
   return (
     <>
-      <ThemeProvider theme={theme}>
-        <ToastContainer style={{ width: "auto" }} position="top-right" />
-        <CssBaseline />
-        <BrowserRouter>
-          <MainRouter />
-        </BrowserRouter>
-      </ThemeProvider>
+      <SWRConfig value={{ fetcher: get, errorRetryCount: 3 }}>
+        <ThemeProvider theme={theme}>
+          <ToastContainer style={{ width: "auto" }} position="top-right" />
+          <CssBaseline />
+          <BrowserRouter>
+            <MainRouter />
+          </BrowserRouter>
+        </ThemeProvider>
+      </SWRConfig>
     </>
   );
 }

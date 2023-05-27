@@ -1,8 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { getUserData } from "../utils";
-import useRTL from "../hooks/useRTL";
+import { getUserData } from "../../utils";
+import useRTL from "../../hooks/useRTL";
+import { getGreeting } from "./functions";
 
 export default function Home() {
   // "en-US" , "fr-FR"
@@ -24,7 +25,7 @@ export default function Home() {
     <Box display="flex" justifyContent="center" alignItems="center" flexDirection="column" gap={2} mt={3}>
       <Typography variant="h2">{date.toLocaleTimeString(isRTL.isRtl ? "fr-FR" : "en-US")}</Typography>
       <Typography variant="h2">
-        {t("morning")}, {getUserData()?.username}.
+        {getGreeting(t)}, {getUserData()?.username}.
       </Typography>
     </Box>
   );
