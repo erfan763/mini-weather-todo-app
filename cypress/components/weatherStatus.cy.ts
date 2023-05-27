@@ -1,5 +1,5 @@
 /// <reference types="cypress" />
-import { GetWeatherStatus } from "../../src/pages/weather/weatherStatus"; // Replace './yourModule' with the actual path to your module
+import { GetWeatherStatus } from "../../src/pages/weather/weatherStatus";
 
 describe("GetWeatherStatus", () => {
   it("should return the correct weather status based on the provided data", () => {
