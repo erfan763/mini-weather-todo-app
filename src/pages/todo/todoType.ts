@@ -1,5 +1,6 @@
 export type ITodo = {
   title: string;
+  date: Date;
 };
 
 export const d = [

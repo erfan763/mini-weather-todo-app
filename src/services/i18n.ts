@@ -28,6 +28,11 @@ const resources = {
       update_successfully: "Updated successfully",
       delete_successfully: "Deleted successfully",
       create_successfully: "Created successfully",
+      yes: "Yes",
+      no: "No",
+      add_todo: "Add Todo",
+      update_todo: "Update Todo",
+      title: "Title",
     },
   },
   fs: {
@@ -54,6 +59,11 @@ const resources = {
       update_successfully: "با موفقیت بروزرسانی شد.",
       delete_successfully: "با موفقیت حذف شد",
       create_successfully: "با موفقیت ساخته شد",
+      yes: "تایید",
+      no: "انصراف",
+      add_todo: "اضافه کردن کار ها",
+      update_todo: "بروزرسانی کارها",
+      title: "عنوان",
     },
   },
 };

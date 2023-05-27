@@ -10,6 +10,15 @@ export const getDesignTokens = (mode: PaletteMode) => ({
         },
       },
     },
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          "&.Mui-disabled": {
+            opacity: 0.6,
+          },
+        },
+      },
+    },
   },
   palette: {
     mode,

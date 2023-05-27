@@ -18,7 +18,6 @@ export default function Profile() {
       language: getUserData()?.language || "en",
     },
     validationSchema: schema,
-    enableReinitialize: true,
     onSubmit(data) {
       const modified = getModifiedValues(
         { ...data },

@@ -1,4 +1,5 @@
 import { Box, Button, CircularProgress, Dialog, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 export default function Confirm({
   open,
@@ -13,13 +14,14 @@ export default function Confirm({
   onConfirm: () => void;
   loading?: boolean;
 }) {
+  const { t } = useTranslation();
   return (
     <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
       <Box py={4} p={2} textAlign="center">
         <Typography variant="h5">Are you sure?</Typography>
         <Box display="grid" gridTemplateColumns="1fr 1fr" gap={1} mx={8} my={2}>
           <Button disabled={disabled} variant="outlined" onClick={onClose}>
-            No
+            {t("no")}
           </Button>
           {loading ? (
             <Box display="flex" justifyContent="center">
@@ -27,7 +29,7 @@ export default function Confirm({
             </Box>
           ) : (
             <Button disabled={disabled} variant="contained" onClick={onConfirm}>
-              Yes
+              {t("yes")}
             </Button>
           )}
         </Box>
