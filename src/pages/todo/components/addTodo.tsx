@@ -21,7 +21,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { setTodoToken } from "utils";
 
 const schema = Yup.object({
-  title: Yup.string().required().min(0).max(20),
+  title: Yup.string().required().min(0).max(50),
 });
 
 export default function AddTodo({

@@ -77,7 +77,7 @@ export default function CustomeDrawer() {
               borderRadius: "10px",
               ".MuiDrawer-paper": {
                 borderRadius: isRTL.isRtl ? "10px 0px 0px 10px" : "0px 10px 10px 0px",
-                bgcolor: "#FFFFFF",
+                // bgcolor: "#FFFFFF",
               },
             }}
           >

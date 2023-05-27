@@ -7,10 +7,11 @@ import MainRouter from "./router/index";
 import { getDesignTokens } from "./theme";
 
 import "./services/i18n";
+import { getUserData } from "./utils";
 
 function App() {
-  // const mode = useTheme();
-  const theme = useMemo(() => createTheme(getDesignTokens("light")), ["light"]);
+  const mode = getUserData().theme;
+  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
 
   return (
     <>

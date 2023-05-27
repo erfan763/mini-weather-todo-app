@@ -50,9 +50,9 @@ export const getDesignTokens = (mode: PaletteMode) => ({
         }
       : {
           // palette values for dark mode
-          // primary: {
-          //   main: "#FFFFFF",
-          // },
+          primary: {
+            main: "rgb(25, 118, 210)",
+          },
           // secondary: {
           //   main: "rgb(0, 127, 255)",
           //   "100": "rgb(240, 247, 255)",
