@@ -40,6 +40,7 @@ const resources = {
       sunny: "Sunny",
       cloudy: "Cloudy",
       rainy: "Rainy",
+      please_write_name: "Please write your name",
     },
   },
   fs: {
@@ -78,6 +79,7 @@ const resources = {
       sunny: "آفتابی",
       cloudy: "ابری",
       rainy: "بارانی",
+      please_write_name: "لطفا اسم خود را وارد کنید.",
     },
   },
 };

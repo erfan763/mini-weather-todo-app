@@ -1,4 +1,4 @@
-import { Autocomplete, Box, Card, TextField, Typography } from "@mui/material";
+import { Autocomplete, Box, Card, TextField, Typography, useMediaQuery } from "@mui/material";
 import { data } from "./cityDb";
 import { useTranslation } from "react-i18next";
 import { useEffect, useState } from "react";
@@ -7,10 +7,8 @@ import { IWeatherType } from "api/weather";
 import { GetWeatherStatus } from "./weatherStatus";
 
 export default function Weather() {
+  const Smobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
-
-  // const [weatherStatus, setWeatherStatus] = useState<"windy" | "rainy" | "sunny" | "cloudy">("sunny");
-
   const [state, setState] = useState<{ lat: string; lng: string; label: string }>({
     lat: "35.7000",
     lng: "51.4167",
@@ -44,12 +42,12 @@ export default function Weather() {
         value={state}
         onChange={(e, nv) => nv && setState(nv)}
         options={neededData}
-        sx={{ width: "300px" }}
+        sx={{ width: Smobile ? "250px" : "300px" }}
         renderInput={(params) => <TextField {...params} label={t("city")} />}
       />
       <Card
         sx={{
-          width: "300px",
+          width: Smobile ? "250px" : "300px",
           mt: 2,
           p: 2,
           display: "flex",
@@ -59,9 +57,9 @@ export default function Weather() {
         }}
         variant="outlined"
       >
-        <Typography>{state?.label}</Typography>
-        <Typography>{weather?.current_weather?.temperature} C</Typography>
-        <Typography>
+        <Typography variant="h5">{state?.label}</Typography>
+        <Typography variant="h6">{weather?.current_weather?.temperature} C</Typography>
+        <Typography variant="h6">
           {weatherStatusState?.cloudy && t("cloudy")}
           {"  "}
           {weatherStatusState?.rainy && t("rainy")}

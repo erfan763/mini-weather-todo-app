@@ -1,4 +1,4 @@
-import { Box, Button, CircularProgress, Dialog, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Dialog, Typography, useMediaQuery } from "@mui/material";
 import { useTranslation } from "react-i18next";
 
 export default function Confirm({
@@ -14,12 +14,13 @@ export default function Confirm({
   onConfirm: () => void;
   loading?: boolean;
 }) {
+  const Smobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
   return (
     <Dialog open={open} onClose={onClose} maxWidth="xs" fullWidth>
       <Box py={4} p={2} textAlign="center">
         <Typography variant="h5">Are you sure?</Typography>
-        <Box display="grid" gridTemplateColumns="1fr 1fr" gap={1} mx={8} my={2}>
+        <Box display="grid" gridTemplateColumns="1fr 1fr" gap={1} mx={Smobile ? 0 : 8} my={2}>
           <Button disabled={disabled} variant="outlined" onClick={onClose}>
             {t("no")}
           </Button>

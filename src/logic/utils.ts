@@ -9,12 +9,12 @@
  * @returns Difference of values and initialValues
  */
 export const getModifiedValues = (values: any, initialValues: any) => {
-  let modifiedValues: any = {};
+  const modifiedValues: any = {};
 
   if (values) {
     Object.entries(values).forEach((entry) => {
-      let key = entry[0];
-      let value = entry[1];
+      const key = entry[0];
+      const value = entry[1];
 
       if (value !== initialValues[key]) {
         modifiedValues[key as any] = value;

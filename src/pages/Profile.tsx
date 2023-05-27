@@ -1,4 +1,4 @@
-import { Box, Button, Input, MenuItem, Select, TextField, Typography } from "@mui/material";
+import { Box, Button, Input, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useFormik } from "formik";
 import { getUserData, setToken } from "../utils";
 import * as Yup from "yup";
@@ -10,6 +10,7 @@ const schema = Yup.object({
 });
 
 export default function Profile() {
+  const Smobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
   const { handleSubmit, values, setFieldValue, isValid } = useFormik({
     initialValues: {
@@ -49,21 +50,25 @@ export default function Profile() {
         }}
       >
         <TextField
-          sx={{ width: "300px" }}
+          sx={{ width: Smobile ? "250px" : "300px" }}
           value={values.username}
           onChange={(e) => setFieldValue("username", e.target.value)}
           label={t("username")}
         />
-        <Typography sx={{ width: "300px" }}>{t("theme")} : </Typography>
-        <Select value={values.theme} onChange={(e) => setFieldValue("theme", e.target.value)} sx={{ width: "300px" }}>
+        <Typography sx={{ width: Smobile ? "250px" : "300px" }}>{t("theme")} : </Typography>
+        <Select
+          value={values.theme}
+          onChange={(e) => setFieldValue("theme", e.target.value)}
+          sx={{ width: Smobile ? "250px" : "300px" }}
+        >
           <MenuItem value="light">{t("light")}</MenuItem>
           <MenuItem value="dark">{t("dark")}</MenuItem>
         </Select>
-        <Typography sx={{ width: "300px" }}>{t("language")} :</Typography>
+        <Typography sx={{ width: Smobile ? "250px" : "300px" }}>{t("language")} :</Typography>
         <Select
           value={values.language}
           onChange={(e) => setFieldValue("language", e.target.value)}
-          sx={{ width: "300px" }}
+          sx={{ width: Smobile ? "250px" : "300px" }}
         >
           <MenuItem value="en">{t("en")}</MenuItem>
           <MenuItem value="fs">{t("fs")}</MenuItem>

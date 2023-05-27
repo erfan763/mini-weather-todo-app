@@ -1,4 +1,4 @@
-import { Box, Button, Dialog, TextField, Typography } from "@mui/material";
+import { Box, Button, Dialog, TextField, Typography, useMediaQuery } from "@mui/material";
 import { ITodo } from "../todoType";
 import { Dispatch, SetStateAction } from "react";
 import { useFormik } from "formik";
@@ -25,6 +25,7 @@ export default function UpdateTodo({
   setTodos: Dispatch<SetStateAction<ITodo[]>>;
   idx: number;
 }) {
+  const Smobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
 
   const { handleSubmit, values, setFieldValue, isValid } = useFormik({
@@ -69,7 +70,7 @@ export default function UpdateTodo({
           }}
         >
           <TextField
-            sx={{ width: "300px" }}
+            sx={{ width: Smobile ? "200px" : "300px" }}
             value={values.title}
             onChange={(e) => setFieldValue("title", e.target.value)}
             label={t("title")}

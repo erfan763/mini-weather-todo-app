@@ -30,22 +30,6 @@ export const getDesignTokens = (mode: PaletteMode) => ({
             light: "rgb(25, 118, 210)",
             contrastText: "#FFFFFF",
           },
-          // secondary: {
-          //   main: "rgb(0, 127, 255)",
-          //   "100": "rgb(240, 247, 255)",
-          // },
-          // warning: {
-          //   main: "#F2BC18",
-          // },
-          // error: {
-          //   main: "#bd0504",
-          // },
-          // success: {
-          //   main: "#00CD67",
-          // },
-          // info: {
-          //   main: "#3D9CCC",
-          // },
           background: {},
         }
       : {
@@ -53,23 +37,6 @@ export const getDesignTokens = (mode: PaletteMode) => ({
           primary: {
             main: "rgb(25, 118, 210)",
           },
-          // secondary: {
-          //   main: "rgb(0, 127, 255)",
-          //   "100": "rgb(240, 247, 255)",
-          // },
-          // warning: {
-          //   main: "#F2BC18",
-          // },
-          // error: {
-          //   main: "#bd0504",
-          // },
-          // success: {
-          //   main: "#00CD67",
-          // },
-          // info: {
-          //   main: "#3D9CCC",
-          // },
-          // background: {},
         }),
   },
 
@@ -96,6 +63,9 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       "@media (max-width:600px)": {
         fontSize: "1.75rem",
       },
+      "@media (max-width:400px)": {
+        fontSize: "1.25rem",
+      },
     },
     h2: {
       fontWeight: 700,
@@ -104,6 +74,9 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       "@media (max-width:650px)": {
         fontSize: "1.5rem",
         fontWeight: 600,
+      },
+      "@media (max-width:400px)": {
+        fontSize: "1rem",
       },
     },
     h3: {
@@ -120,11 +93,17 @@ export const getDesignTokens = (mode: PaletteMode) => ({
       fontWeight: 600,
       fontSize: "1.5rem",
       lineHeight: 1.375,
+      "@media (max-width:400px)": {
+        fontSize: "1rem",
+      },
     },
     h6: {
       fontWeight: 600,
       fontSize: "1.125rem",
       lineHeight: 1.375,
+      "@media (max-width:400px)": {
+        fontSize: "1rem",
+      },
     },
   },
 });

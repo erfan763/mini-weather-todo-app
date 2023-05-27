@@ -8,6 +8,7 @@ import {
   TextField,
   TextFieldVariants,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { ITodo } from "../todoType";
 import { Dispatch, SetStateAction } from "react";
@@ -35,6 +36,7 @@ export default function AddTodo({
   todos?: ITodo[];
   setTodos: Dispatch<SetStateAction<ITodo[]>>;
 }) {
+  const Smobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
   const { handleSubmit, values, setFieldValue, isValid, resetForm } = useFormik({
     initialValues: {
@@ -71,7 +73,7 @@ export default function AddTodo({
           }}
         >
           <TextField
-            sx={{ width: "300px" }}
+            sx={{ width: Smobile ? "200px" : "300px" }}
             value={values.title}
             onChange={(e) => setFieldValue("title", e.target.value)}
             label={t("title")}

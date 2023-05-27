@@ -1,4 +1,4 @@
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useFormik } from "formik";
 import { getUserData, setToken } from "../utils";
 import * as Yup from "yup";
@@ -10,6 +10,7 @@ const schema = Yup.object({
   username: Yup.string().required().min(0).max(20),
 });
 export default function Login() {
+  const Smobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
   const navigate = useNavigate();
   const { handleSubmit, values, setFieldValue, isValid } = useFormik({
@@ -37,8 +38,9 @@ export default function Login() {
           gap: "30px",
         }}
       >
+        <Typography variant="h6">{t("please_write_name")}</Typography>
         <TextField
-          sx={{ width: "300px" }}
+          sx={{ width: Smobile ? "250px" : "300px" }}
           value={values.username}
           onChange={(e) => setFieldValue("username", e.target.value)}
           label={t("username")}
