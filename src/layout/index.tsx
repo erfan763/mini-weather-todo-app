@@ -6,7 +6,6 @@ export default function Layout() {
   return (
     <Box width="100%">
       <Header />
-
       <Outlet />
     </Box>
   );

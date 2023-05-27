@@ -1,18 +1,27 @@
 import { Box, Button, Input, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useFormik } from "formik";
-import { getUserData, setToken } from "../utils";
+import { getUserData, setUserToken } from "../utils";
 import * as Yup from "yup";
 import { useTranslation } from "react-i18next";
 import { getModifiedValues } from "../logic/utils";
 import { toast } from "react-toastify";
-const schema = Yup.object({
-  username: Yup.string().required().min(0).max(20),
-});
+import useRTL from "../hooks/useRTL";
 
 export default function Profile() {
-  const Smobile = useMediaQuery("(max-width:350px)");
+  const SMobile = useMediaQuery("(max-width:350px)");
+  const isRtl = useRTL();
   const { t } = useTranslation();
-  const { handleSubmit, values, setFieldValue, isValid } = useFormik({
+
+  const schema = Yup.object({
+    username: isRtl
+      ? Yup.string()
+          .required("وارد کردن نام کاربری الزامی است")
+          .min(3, "نام کابری شما حداقل باید شامل 3 حرف باشد")
+          .max(20, "شما حداکثر مجاز به وارد کردن 20 حرف هستید")
+      : Yup.string().required().min(0).max(20),
+  });
+
+  const { handleSubmit, values, setFieldValue, isValid, errors, touched } = useFormik({
     initialValues: {
       username: getUserData()?.username,
       theme: getUserData()?.theme || "light",
@@ -29,7 +38,7 @@ export default function Profile() {
         }
       );
       if (modified) {
-        setToken(JSON.stringify(data));
+        setUserToken(JSON.stringify(data));
         window.location.reload();
         toast.success(t("update_successfully"));
       } else {
@@ -50,25 +59,27 @@ export default function Profile() {
         }}
       >
         <TextField
-          sx={{ width: Smobile ? "250px" : "300px" }}
+          sx={{ width: SMobile ? "250px" : "300px" }}
           value={values.username}
           onChange={(e) => setFieldValue("username", e.target.value)}
           label={t("username")}
+          error={Boolean(touched.username && errors.username)}
+          helperText={errors.username}
         />
-        <Typography sx={{ width: Smobile ? "250px" : "300px" }}>{t("theme")} : </Typography>
+        <Typography sx={{ width: SMobile ? "250px" : "300px" }}>{t("theme")} : </Typography>
         <Select
           value={values.theme}
           onChange={(e) => setFieldValue("theme", e.target.value)}
-          sx={{ width: Smobile ? "250px" : "300px" }}
+          sx={{ width: SMobile ? "250px" : "300px" }}
         >
           <MenuItem value="light">{t("light")}</MenuItem>
           <MenuItem value="dark">{t("dark")}</MenuItem>
         </Select>
-        <Typography sx={{ width: Smobile ? "250px" : "300px" }}>{t("language")} :</Typography>
+        <Typography sx={{ width: SMobile ? "250px" : "300px" }}>{t("language")} :</Typography>
         <Select
           value={values.language}
           onChange={(e) => setFieldValue("language", e.target.value)}
-          sx={{ width: Smobile ? "250px" : "300px" }}
+          sx={{ width: SMobile ? "250px" : "300px" }}
         >
           <MenuItem value="en">{t("en")}</MenuItem>
           <MenuItem value="fs">{t("fs")}</MenuItem>

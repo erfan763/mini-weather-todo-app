@@ -1,8 +1,7 @@
 import i18next from "i18next";
 import { initReactI18next } from "react-i18next";
-// "Inline" English and Persian translations.
-// We can localize to any language and any number of languages.
 import { getUserData } from "../utils";
+
 const resources = {
   en: {
     translation: {
@@ -41,6 +40,8 @@ const resources = {
       cloudy: "Cloudy",
       rainy: "Rainy",
       please_write_name: "Please write your name",
+      username_required: "The username field is required",
+      are_you_sure: "Are you sure?",
     },
   },
   fs: {
@@ -80,6 +81,8 @@ const resources = {
       cloudy: "ابری",
       rainy: "بارانی",
       please_write_name: "لطفا اسم خود را وارد کنید.",
+      username_required: "وارد کردن نام الزامی است",
+      are_you_sure: "آیا شما مطمِیّن هستید ؟",
     },
   },
 };

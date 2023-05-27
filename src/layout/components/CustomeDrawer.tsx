@@ -17,9 +17,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 
-import { menuData } from "../layout/data";
+import { menuData } from "../data";
 import { useLocation } from "react-router-dom";
-import useRTL from "../hooks/useRTL";
+import useRTL from "../../hooks/useRTL";
 import { useTranslation } from "react-i18next";
 
 type Anchor = "left" | "right";

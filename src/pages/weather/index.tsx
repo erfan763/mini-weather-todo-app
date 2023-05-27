@@ -7,7 +7,7 @@ import { IWeatherType } from "api/weather";
 import { GetWeatherStatus } from "./weatherStatus";
 
 export default function Weather() {
-  const Smobile = useMediaQuery("(max-width:350px)");
+  const SMobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
   const [state, setState] = useState<{ lat: string; lng: string; label: string }>({
     lat: "35.7000",
@@ -42,12 +42,12 @@ export default function Weather() {
         value={state}
         onChange={(e, nv) => nv && setState(nv)}
         options={neededData}
-        sx={{ width: Smobile ? "250px" : "300px" }}
+        sx={{ width: SMobile ? "250px" : "300px" }}
         renderInput={(params) => <TextField {...params} label={t("city")} />}
       />
       <Card
         sx={{
-          width: Smobile ? "250px" : "300px",
+          width: SMobile ? "250px" : "300px",
           mt: 2,
           p: 2,
           display: "flex",

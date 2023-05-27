@@ -25,7 +25,7 @@ export default function UpdateTodo({
   setTodos: Dispatch<SetStateAction<ITodo[]>>;
   idx: number;
 }) {
-  const Smobile = useMediaQuery("(max-width:350px)");
+  const SMobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
 
   const { handleSubmit, values, setFieldValue, isValid } = useFormik({
@@ -70,7 +70,7 @@ export default function UpdateTodo({
           }}
         >
           <TextField
-            sx={{ width: Smobile ? "200px" : "300px" }}
+            sx={{ width: SMobile ? "200px" : "300px" }}
             value={values.title}
             onChange={(e) => setFieldValue("title", e.target.value)}
             label={t("title")}

@@ -30,7 +30,6 @@ export const getDesignTokens = (mode: PaletteMode) => ({
             light: "rgb(25, 118, 210)",
             contrastText: "#FFFFFF",
           },
-          background: {},
         }
       : {
           // palette values for dark mode
@@ -41,25 +40,10 @@ export const getDesignTokens = (mode: PaletteMode) => ({
   },
 
   typography: {
-    body1: {
-      fontSize: "1rem",
-      fontWeight: 400,
-      lineHeight: 1.5,
-    },
-    subtitle1: {
-      fontSize: "1rem",
-      fontWeight: 500,
-      lineHeight: 1.75,
-    },
-    caption: {
-      fontSize: "0.75rem",
-      fontWeight: 400,
-      lineHeight: 1.66,
-    },
     h1: {
       fontWeight: 700,
       fontSize: "3.5rem",
-      lineHeight: 1.375,
+
       "@media (max-width:600px)": {
         fontSize: "1.75rem",
       },
@@ -70,7 +54,7 @@ export const getDesignTokens = (mode: PaletteMode) => ({
     h2: {
       fontWeight: 700,
       fontSize: "3rem",
-      lineHeight: 1.375,
+
       "@media (max-width:650px)": {
         fontSize: "1.5rem",
         fontWeight: 600,
@@ -82,17 +66,15 @@ export const getDesignTokens = (mode: PaletteMode) => ({
     h3: {
       fontWeight: 700,
       fontSize: "2.25rem",
-      lineHeight: 1.375,
     },
     h4: {
       fontWeight: 700,
       fontSize: "2rem",
-      lineHeight: 1.375,
     },
     h5: {
       fontWeight: 600,
       fontSize: "1.5rem",
-      lineHeight: 1.375,
+
       "@media (max-width:400px)": {
         fontSize: "1rem",
       },
@@ -100,7 +82,7 @@ export const getDesignTokens = (mode: PaletteMode) => ({
     h6: {
       fontWeight: 600,
       fontSize: "1.125rem",
-      lineHeight: 1.375,
+
       "@media (max-width:400px)": {
         fontSize: "1rem",
       },

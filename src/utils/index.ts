@@ -21,14 +21,10 @@ export function getUserTodoData() {
   return convertJson;
 }
 
-export function setToken(data: string) {
+export function setUserToken(data: string) {
   localStorage.setItem(tokenKey, data);
 }
 
 export function setTodoToken(data: string) {
   localStorage.setItem(todoKey, data);
-}
-
-export function removeToken() {
-  localStorage.removeItem(tokenKey);
 }

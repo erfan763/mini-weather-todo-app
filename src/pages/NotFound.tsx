@@ -11,7 +11,7 @@ export default function NotFound() {
         {t("not_found")}
       </Typography>
       <Button
-        sx={{ mt: 3 }}
+        sx={{ mt: 3, direction: "ltr" }}
         startIcon={<ArrowBackRounded />}
         component={Link}
         to="/"

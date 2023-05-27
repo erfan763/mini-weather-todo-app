@@ -19,7 +19,7 @@ export default function Todo({
   todos: ITodo[];
   setTodos: Dispatch<SetStateAction<ITodo[]>>;
 }) {
-  const Smobile = useMediaQuery("(max-width:450px)");
+  const SMobile = useMediaQuery("(max-width:450px)");
   const [open, setOpen] = useState<boolean>(false);
   const [openEditTodo, setOpenEditTodo] = useState<boolean>(false);
   const { t } = useTranslation();
@@ -43,18 +43,18 @@ export default function Todo({
         }}
       />
       <Box
-        p={Smobile ? 1 : 2}
+        p={SMobile ? 1 : 2}
         display="flex"
-        justifyContent={Smobile ? "unset" : "space-between"}
-        alignItems={Smobile ? "unset" : "center"}
-        flexDirection={Smobile ? "column" : "row"}
+        justifyContent={SMobile ? "unset" : "space-between"}
+        alignItems={SMobile ? "unset" : "center"}
+        flexDirection={SMobile ? "column" : "row"}
       >
         <Typography variant="h6">
           {idx + 1}
           {")"}
           {data?.title}
         </Typography>
-        <Box display="flex" gap={Smobile ? 0 : 1} mt={0.5}>
+        <Box display="flex" gap={SMobile ? 0 : 1} mt={0.5}>
           <IconButton sx={{ p: 0 }} onClick={() => setOpenEditTodo(true)}>
             <EditIcon sx={{ cursor: "pointer" }} />
           </IconButton>

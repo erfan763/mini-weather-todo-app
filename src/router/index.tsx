@@ -13,8 +13,6 @@ const Todos = React.lazy(() => import("../pages/todo"));
 const Login = React.lazy(() => import("../pages/login"));
 
 export default function MainRouter() {
-  // const authStatus = useAuthState();
-
   if (!getUserData()?.username) {
     return (
       <Suspense fallback={<FullPageSpinner />}>

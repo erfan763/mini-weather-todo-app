@@ -7,8 +7,7 @@ import Todo from "./components/todo";
 import AddTodo from "./components/addTodo";
 
 export default function Todos() {
-  const Smobile = useMediaQuery("(max-width:450px)");
-
+  const SMobile = useMediaQuery("(max-width:450px)");
   const myTodoData = getUserTodoData();
   const [todos, setTodos] = useState<ITodo[]>(myTodoData);
   const [open, setOpen] = useState<boolean>(false);
@@ -30,14 +29,14 @@ export default function Todos() {
             mx: 4,
             mt: 6,
             mb: 2,
-            minWidth: Smobile ? "250px" : "650px",
+            minWidth: SMobile ? "250px" : "650px",
           }}
         >
           <Typography variant="h4" textAlign="center">
             {t("todo_list")}
           </Typography>
           <Divider />
-          <Box sx={{ overflowY: "scroll" }} height={Smobile ? "350px" : "450px"}>
+          <Box sx={{ overflowY: "scroll" }} height={SMobile ? "350px" : "450px"}>
             {todos?.map((i, idx) => (
               <Todo todos={todos} setTodos={setTodos} data={i} idx={idx} key={idx} />
             ))}

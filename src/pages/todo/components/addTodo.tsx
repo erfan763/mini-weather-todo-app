@@ -1,25 +1,10 @@
-import {
-  Box,
-  Button,
-  Dialog,
-  FilledTextFieldProps,
-  OutlinedTextFieldProps,
-  StandardTextFieldProps,
-  TextField,
-  TextFieldVariants,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Button, Dialog, TextField, Typography, useMediaQuery } from "@mui/material";
 import { ITodo } from "../todoType";
 import { Dispatch, SetStateAction } from "react";
 import { useFormik } from "formik";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
 import * as Yup from "yup";
-import { DesktopDatePicker } from "@mui/x-date-pickers";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { setTodoToken } from "utils";
 
 const schema = Yup.object({
   title: Yup.string().required().min(0).max(50),
@@ -36,7 +21,7 @@ export default function AddTodo({
   todos?: ITodo[];
   setTodos: Dispatch<SetStateAction<ITodo[]>>;
 }) {
-  const Smobile = useMediaQuery("(max-width:350px)");
+  const SMobile = useMediaQuery("(max-width:350px)");
   const { t } = useTranslation();
   const { handleSubmit, values, setFieldValue, isValid, resetForm } = useFormik({
     initialValues: {
@@ -73,20 +58,11 @@ export default function AddTodo({
           }}
         >
           <TextField
-            sx={{ width: Smobile ? "200px" : "300px" }}
+            sx={{ width: SMobile ? "200px" : "300px" }}
             value={values.title}
             onChange={(e) => setFieldValue("title", e.target.value)}
             label={t("title")}
           />
-          {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
-          {/* <DesktopDatePicker
-              label="Date desktop"
-              //   inputFormat="MM/DD/YYYY"
-              value={values.date}
-              onChange={(e) => setFieldValue("date", e?.getDate())}
-              // renderInput={(params: any) => <TextField {...params} />}
-            /> */}
-          {/* </LocalizationProvider> */}
           <Button variant="contained" type="submit" disabled={!isValid}>
             {t("submit")}
           </Button>

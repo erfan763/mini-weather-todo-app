@@ -13,26 +13,24 @@ import { SWRConfig } from "swr";
 import useRTL from "./hooks/useRTL";
 
 function App() {
-  const Smobile = useMediaQuery("(max-width:350px)");
+  const SMobile = useMediaQuery("(max-width:350px)");
   const isRTL = useRTL();
   const mode = getUserData() && getUserData().theme;
-  const theme = useMemo(() => createTheme(getDesignTokens(mode || "light")), [mode, "light"]);
+  const theme = useMemo(() => createTheme(getDesignTokens(mode || "light")), [mode]);
 
   return (
-    <>
-      <SWRConfig value={{ fetcher: get, errorRetryCount: 3 }}>
-        <ThemeProvider theme={theme}>
-          <ToastContainer
-            style={{ width: Smobile ? "200px" : "auto", fontSize: Smobile ? "10px" : "unset", marginTop: "10px" }}
-            position={isRTL?.isRtl ? "top-right" : "top-left"}
-          />
-          <CssBaseline />
-          <BrowserRouter>
-            <MainRouter />
-          </BrowserRouter>
-        </ThemeProvider>
-      </SWRConfig>
-    </>
+    <SWRConfig value={{ fetcher: get, errorRetryCount: 3 }}>
+      <ThemeProvider theme={theme}>
+        <ToastContainer
+          style={{ width: SMobile ? "200px" : "auto", fontSize: SMobile ? "10px" : "unset", marginTop: "10px" }}
+          position={isRTL?.isRtl ? "top-right" : "top-left"}
+        />
+        <CssBaseline />
+        <BrowserRouter>
+          <MainRouter />
+        </BrowserRouter>
+      </ThemeProvider>
+    </SWRConfig>
   );
 }
 
