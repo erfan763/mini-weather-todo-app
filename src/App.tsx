@@ -16,7 +16,7 @@ function App() {
   const SMobile = useMediaQuery("(max-width:350px)");
   const isRTL = useRTL();
   const mode = getUserData() && getUserData().theme;
-  const theme = useMemo(() => createTheme(getDesignTokens(mode || "light")), [mode]);
+  const theme = useMemo(() => createTheme(getDesignTokens(mode || "dark")), [mode]);
 
   return (
     <SWRConfig value={{ fetcher: get, errorRetryCount: 3 }}>

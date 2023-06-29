@@ -1,4 +1,4 @@
-import { Box, Button, Input, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
+import { Box, Button, MenuItem, Select, TextField, Typography, useMediaQuery } from "@mui/material";
 import { useFormik } from "formik";
 import { getUserData, setUserToken } from "../utils";
 import * as Yup from "yup";
@@ -24,7 +24,7 @@ export default function Profile() {
   const { handleSubmit, values, setFieldValue, isValid, errors, touched } = useFormik({
     initialValues: {
       username: getUserData()?.username,
-      theme: getUserData()?.theme || "light",
+      theme: getUserData()?.theme || "dark",
       language: getUserData()?.language || "en",
     },
     validationSchema: schema,
@@ -33,7 +33,7 @@ export default function Profile() {
         { ...data },
         {
           username: getUserData()?.username,
-          theme: getUserData()?.theme || "light",
+          theme: getUserData()?.theme || "dark",
           language: getUserData()?.language || "en",
         }
       );

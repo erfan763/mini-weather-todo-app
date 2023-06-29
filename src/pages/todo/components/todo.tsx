@@ -37,7 +37,7 @@ export default function Todo({
         open={open}
         onClose={() => setOpen(false)}
         onConfirm={() => {
-          setTodos(todos?.filter((x, index) => index !== idx));
+          setTodos(todos?.filter((_x, index) => index !== idx));
           setOpen(false);
           toast.success(t("delete_successfully"));
         }}

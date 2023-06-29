@@ -40,7 +40,7 @@ export default function Weather() {
         disablePortal
         id="combo-box-demo"
         value={state}
-        onChange={(e, nv) => nv && setState(nv)}
+        onChange={(_e, nv) => nv && setState(nv)}
         options={neededData}
         sx={{ width: SMobile ? "250px" : "300px" }}
         renderInput={(params) => <TextField {...params} label={t("city")} />}

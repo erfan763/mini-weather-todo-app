@@ -1,0 +1,11 @@
+.my-button {
+    transition: transform 0.2s;
+    /* Add a smooth transition effect */
+}
+
+.my-button:hover {
+    transform: translate(200px);
+    /* Change the position on hover */
+    pointer-events: none;
+    /* Disable pointer events to prevent clicking */
+}

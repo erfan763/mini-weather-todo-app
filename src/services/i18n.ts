@@ -42,6 +42,7 @@ const resources = {
       please_write_name: "Please write your name",
       username_required: "The username field is required",
       are_you_sure: "Are you sure?",
+      kiss: "Mahla will you give me a kiss ?",
     },
   },
   fs: {
@@ -83,6 +84,9 @@ const resources = {
       please_write_name: "لطفا اسم خود را وارد کنید.",
       username_required: "وارد کردن نام الزامی است",
       are_you_sure: "آیا شما مطمِیّن هستید ؟",
+      kiss: "مهلایی یه بوسسسسس میدییی ؟؟",
+      yess: "یسسسسس",
+      noo: "نه",
     },
   },
 };
