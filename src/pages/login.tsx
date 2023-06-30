@@ -29,12 +29,10 @@ export default function Login() {
     validationSchema: schema,
     enableReinitialize: true,
     onSubmit(data) {
-      if (data.username === "Mahla" || data.username === "مهلا") {
-        setUserToken(JSON.stringify(data));
-        toast.success(t("create_successfully"));
-        navigate("/home");
-        window.location.reload();
-      }
+      setUserToken(JSON.stringify(data));
+      toast.success(t("create_successfully"));
+      navigate("/home");
+      window.location.reload();
     },
   });
   return (
